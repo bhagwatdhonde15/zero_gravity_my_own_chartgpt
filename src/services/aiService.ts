@@ -319,23 +319,28 @@ function buildSmartResponseContent(
   }
 
   if (lower.includes('chart') || lower.includes('graph') || lower.includes('plot') || lower.includes('visualize')) {
-    return prefix + `Here is your interactive **ChartGPT Data Visualization**:
+    const isPie = lower.includes('pie') || lower.includes('share') || lower.includes('distribution');
+    const isLine = lower.includes('line') || lower.includes('trend') || lower.includes('growth');
+    const chartType = isPie ? 'pie' : isLine ? 'line' : 'bar';
+    const chartTitle = prompt.length > 40 ? `${prompt.slice(0, 40)}... Data Chart` : `Data Analytics: ${prompt}`;
+
+    return prefix + `Here is your interactive **Zero Gravity Chart Data Visualization**:
 
 \`\`\`chart
 {
-  "type": "bar",
-  "title": "Groq Llama 3.3 vs Industry LLM Tokens/Sec Speed",
-  "labels": ["Groq Llama 3.3", "GPT-4o", "Claude 3.5", "Gemini 1.5"],
+  "type": "${chartType}",
+  "title": "${chartTitle.replace(/"/g, '\\"')}",
+  "labels": ["Q1 2026", "Q2 2026", "Q3 2026", "Q4 2026", "Q1 2027"],
   "datasets": [
     {
-      "label": "Tokens / Second",
-      "data": [850, 110, 95, 80]
+      "label": "Performance Metric",
+      "data": [450, 680, 890, 1120, 1450]
     }
   ]
 }
 \`\`\`
 
-Groq Cloud hardware delivers ultra-fast, low-latency streaming responses!`;
+You can hover over data points or click **Export** to save the visualization dataset JSON!`;
   }
 
   if (lower.includes('code') || lower.includes('react') || lower.includes('python') || lower.includes('function')) {
