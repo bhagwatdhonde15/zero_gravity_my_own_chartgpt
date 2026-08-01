@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const DEFAULT_PORT = parseInt(process.env.PORT || '3000', 10);
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
@@ -46,9 +46,22 @@ if (fs.existsSync(distPath)) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log('====================================================');
-  console.log('🚀 Zero Gravity Bot Full-Stack Server Active!');
-  console.log(`👉 Frontend & Backend Running at: http://localhost:${PORT}`);
-  console.log('====================================================');
-});
+function startServer(port) {
+  const server = app.listen(port, () => {
+    console.log('====================================================');
+    console.log('🚀 Zero Gravity Bot Full-Stack Server Active!');
+    console.log(`👉 Frontend & Backend Running at: http://localhost:${port}`);
+    console.log('====================================================');
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`Port ${port} in use, trying ${port + 1}...`);
+      startServer(port + 1);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+startServer(DEFAULT_PORT);
