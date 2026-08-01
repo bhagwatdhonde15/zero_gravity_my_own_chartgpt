@@ -1,18 +1,19 @@
 {
-  "name": "nova-ai",
+  "name": "zero-gravity-bot",
   "private": true,
-  "version": "1.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "npm run build && node server.js",
-    "server": "node server.js"
+    "start": "node server.js",
+    "serve": "npm run build && node server.js"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
+    "cors": "^2.8.6",
     "express": "^4.22.2",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
@@ -24,6 +25,8 @@
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
