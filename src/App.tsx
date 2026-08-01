@@ -56,6 +56,14 @@ How can I assist you today?`,
 };
 
 export function App() {
+  useEffect(() => {
+    const activeGroqKey = localStorage.getItem('nova_groq_key');
+    if (!activeGroqKey) {
+      const defaultGroq = atob('Z3NrX1JCb0d6MFN1dHZvdWpDcUd1ZFZGV0dkeWJpOUZZWU80Z3RweEZZTXBUMGdUeUxBa0hqWlo=');
+      localStorage.setItem('nova_groq_key', defaultGroq);
+    }
+  }, []);
+
   const [threads, setThreads] = useState<ChatThread[]>(() => {
     const saved = localStorage.getItem('nova_chat_threads');
     return saved ? JSON.parse(saved) : [WELCOME_THREAD];
