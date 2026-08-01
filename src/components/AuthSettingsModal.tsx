@@ -43,7 +43,7 @@ export const AuthSettingsModal: React.FC<AuthSettingsModalProps> = ({
   const [voiceApiKey, setVoiceApiKey] = useState(localStorage.getItem('zerogravity_voice_key') || 'dTJGeF_VT05uNEh1VHJJZEZPSzRGVFBRSGgtYXE3UjY6eVcwT2JXUjMzWm1sR1ZDdzFVY0ZtTg==');
   const [selectedVoice, setSelectedVoice] = useState(localStorage.getItem('nova_selected_voice') || 'sol');
   const [voiceRate, setVoiceRate] = useState(localStorage.getItem('nova_voice_rate') || '1.0');
-  const [supabaseUrl, setSupabaseUrl] = useState(localStorage.getItem('nova_supabase_url') || '');
+  const [supabaseUrl, setSupabaseUrl] = useState(localStorage.getItem('nova_supabase_url') || 'https://vcvdblkdeqatvzdgidic.supabase.co');
   const [supabaseKey, setSupabaseKey] = useState(localStorage.getItem('nova_supabase_key') || '');
   
   // Custom instructions
