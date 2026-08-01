@@ -361,6 +361,20 @@ processData([10, 20, 30, 40]);
 Click **"Run Code"** above to test it live!`;
   }
 
+  // Casual Greetings Handler (e.g. "hello", "hi", "hey", "who are you")
+  const isGreeting = /^(hello|hi|hey|greetings|good morning|good afternoon|good evening|sup|howdy|who are you|hello zero gravity)$/i.test(lower.trim());
+  if (isGreeting) {
+    return prefix + `Hello! 👋 I am **Zero Gravity Bot**, your AI assistant powered by **Groq Llama 3.3 70B** and **DeepSeek R1**.
+
+I'm ready to help you with:
+- 💻 **Writing & Executing Code** (React, TypeScript, Python, SQL)
+- 🎙️ **Voice Assistant & Speech** (Hands-free 2-way voice conversations)
+- 📊 **Interactive Data Charts & Visualizations**
+- 🎨 **NanoBana FLUX AI Image Generation**
+
+How can I assist you today?`;
+  }
+
   // Dynamic Conversational Response Synthesis
   const titlePrompt = prompt.length > 50 ? prompt.slice(0, 50) + '...' : prompt;
   
