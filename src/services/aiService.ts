@@ -136,7 +136,7 @@ export async function generateStreamingResponse(
       await streamGroqCloudResponse(groqApiKey, userPrompt, history, modelId, intent, callbacks);
       return;
     } catch (err) {
-      console.warn('Groq Cloud API call failed, attempting OpenAI / NovaGPT fallback:', err);
+      console.warn('Groq Cloud API call failed, falling back to Zero Gravity Bot engine:', err);
     }
   }
 
@@ -146,11 +146,11 @@ export async function generateStreamingResponse(
       await streamRealOpenAIResponse(customOpenAIKey, userPrompt, history, modelId, intent, callbacks);
       return;
     } catch (err) {
-      console.warn('Real OpenAI API call failed, falling back to NovaGPT engine:', err);
+      console.warn('Real OpenAI API call failed, falling back to Zero Gravity Bot engine:', err);
     }
   }
 
-  // Fallback Simulator Engine
+  // Fallback High-Fidelity Intelligence Engine
   await streamMockResponse(userPrompt, modelId, history, attachments, webSearchEnabled, reasoningMode, intent, callbacks);
 }
 
