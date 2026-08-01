@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-[#09090B] text-[#F8FAFC] overflow-x-hidden min-h-screen transition-colors duration-200;
+  }
+
+  html:not(.dark) body {
+    @apply bg-[#F0F6FF] text-[#0F172A];
+  }
+}
+
+/* Theme 1 - Premium AI Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.6);
+}
+
+/* Premium Card Radius & Shadows */
+.card-premium {
+  background: #111827;
+  border: 1px solid #1F2937;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium:hover {
+  border-color: #3B82F6;
+  transform: scale(1.02);
+}
+
+/* Button Micro-interactions */
+.btn-primary {
+  background: #3B82F6;
+  color: #FFFFFF;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background: #2563EB;
+  transform: scale(1.03);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background: #334155;
+  border-color: #3B82F6;
+  transform: scale(1.02);
+}
+
+.btn-danger {
+  background: #DC2626;
+  color: #FFFFFF;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-danger:hover {
+  background: #EF4444;
+  transform: scale(1.03);
+}
+
+/* Voice Gradient Button */
+.btn-voice {
+  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  color: #FFFFFF;
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-voice:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 45px rgba(6, 182, 212, 0.6);
+}
+
+/* AI Prompt Suggestions */
+.chip-ai-suggestion {
+  background: #111827;
+  border: 1px solid #334155;
+  color: #F8FAFC;
+  border-radius: 14px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chip-ai-suggestion:hover {
+  background: #1D4ED8;
+  border-color: #3B82F6;
+  transform: scale(1.03);
+}
+
+/* Message Input Box */
+.input-message-box {
+  background: #111827;
+  border: 1.5px solid #3B82F6;
+  border-radius: 18px;
+  color: #F8FAFC;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-message-box:focus-within {
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.45);
+  border-color: #60A5FA;
+}
+
+/* Code block highlight styling */
+pre {
+  background-color: #0B1220 !important;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
