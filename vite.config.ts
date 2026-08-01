@@ -5,7 +5,7 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/zero_gravity_my_own_chartgpt/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
