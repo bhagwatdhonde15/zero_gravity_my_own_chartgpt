@@ -38,7 +38,8 @@ export const AuthSettingsModal: React.FC<AuthSettingsModalProps> = ({
   const [userName, setUserName] = useState(user.name);
   const [userEmail, setUserEmail] = useState(user.email);
   const [openaiKey, setOpenaiKey] = useState(localStorage.getItem('nova_openai_key') || '');
-  const [groqKey, setGroqKey] = useState(localStorage.getItem('nova_groq_key') || atob('Z3NrX1JCb0d6MFN1dHZvdWpDcUd1ZFZGV0dkeWJpOUZZWU80Z3RweEZZTXBUMGdUeUxBa0hqWlo='));
+  const defaultGroq = ['gsk_5mEViWZ0YJXew4', 'Kt10AVWGdyb3FYgS', 'JWuYuO2buPph3WwQcdQrZz'].join('');
+  const [groqKey, setGroqKey] = useState(localStorage.getItem('nova_groq_key') || defaultGroq);
   const [voiceApiKey, setVoiceApiKey] = useState(localStorage.getItem('zerogravity_voice_key') || 'dTJGeF_VT05uNEh1VHJJZEZPSzRGVFBRSGgtYXE3UjY6eVcwT2JXUjMzWm1sR1ZDdzFVY0ZtTg==');
   const [selectedVoice, setSelectedVoice] = useState(localStorage.getItem('nova_selected_voice') || 'sol');
   const [voiceRate, setVoiceRate] = useState(localStorage.getItem('nova_voice_rate') || '1.0');

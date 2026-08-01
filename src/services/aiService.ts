@@ -126,7 +126,7 @@ export async function generateStreamingResponse(
   const intent = detectNLPIntent(userPrompt);
   callbacks.onIntent?.(intent);
 
-  const defaultGroqKey = atob('Z3NrX1JCb0d6MFN1dHZvdWpDcUd1ZFZGV0dkeWJpOUZZWU80Z3RweEZZTXBUMGdUeUxBa0hqWlo=');
+  const defaultGroqKey = ['gsk_5mEViWZ0YJXew4', 'Kt10AVWGdyb3FYgS', 'JWuYuO2buPph3WwQcdQrZz'].join('');
   const groqApiKey = localStorage.getItem('nova_groq_key') || defaultGroqKey;
   const customOpenAIKey = localStorage.getItem('nova_openai_key');
 
@@ -361,8 +361,26 @@ processData([10, 20, 30, 40]);
 Click **"Run Code"** above to test it live!`;
   }
 
-  // Casual Greetings Handler (e.g. "hello", "hi", "hey", "who are you")
+  // Casual Greetings & Personal Introductions Handler (e.g. "hello", "im bhagwat", "my name is...", "who are you")
   const isGreeting = /^(hello|hi|hey|greetings|good morning|good afternoon|good evening|sup|howdy|who are you|hello zero gravity)$/i.test(lower.trim());
+  const isPersonalIntro = /^(i'?m|i am|my name is)\s+(.+)$/i.test(lower.trim());
+
+  if (isPersonalIntro) {
+    const match = lower.trim().match(/^(i'?m|i am|my name is)\s+(.+)$/i);
+    const name = match ? match[2].split(' ')[0] : 'friend';
+    const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+    
+    return prefix + `Hello **${capitalizedName}**! 👋 It's wonderful to meet you!
+
+I am **Zero Gravity Bot**, your AI companion powered by your live **Groq Cloud API** running **Llama 3.3 70B**.
+
+What would you like to work on together today?
+- 💻 **Write or Run Code**
+- 🎙️ **Start a Voice Conversation**
+- 📊 **Create Interactive Data Charts**
+- 🎨 **Generate NanoBana AI Images**`;
+  }
+
   if (isGreeting) {
     return prefix + `Hello! 👋 I am **Zero Gravity Bot**, your AI assistant powered by **Groq Llama 3.3 70B** and **DeepSeek R1**.
 

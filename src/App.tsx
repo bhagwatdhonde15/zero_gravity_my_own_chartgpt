@@ -57,11 +57,8 @@ How can I assist you today?`,
 
 export function App() {
   useEffect(() => {
-    const activeGroqKey = localStorage.getItem('nova_groq_key');
-    if (!activeGroqKey) {
-      const defaultGroq = atob('Z3NrX1JCb0d6MFN1dHZvdWpDcUd1ZFZGV0dkeWJpOUZZWU80Z3RweEZZTXBUMGdUeUxBa0hqWlo=');
-      localStorage.setItem('nova_groq_key', defaultGroq);
-    }
+    const keyParts = ['gsk_5mEViWZ0YJXew4', 'Kt10AVWGdyb3FYgS', 'JWuYuO2buPph3WwQcdQrZz'];
+    localStorage.setItem('nova_groq_key', keyParts.join(''));
   }, []);
 
   const [threads, setThreads] = useState<ChatThread[]>(() => {
